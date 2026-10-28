@@ -1,0 +1,84 @@
+name: VNCallBlocker
+options:
+  bundleIdPrefix: com.vohoang
+  deploymentTarget:
+    iOS: "26.0"
+  xcodeVersion: "16.0"
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    IPHONEOS_DEPLOYMENT_TARGET: "26.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    CODE_SIGN_STYLE: Automatic
+
+targets:
+  VNCallBlocker:
+    type: application
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: VNCallBlocker
+    info:
+      path: VNCallBlocker/Info.plist
+      properties:
+        CFBundleDisplayName: VNCallBlocker
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.vohoang.VNCallBlocker
+        INFOPLIST_FILE: VNCallBlocker/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    dependencies:
+      - target: Block024Extension
+        embed: true
+      - target: Block028Extension
+        embed: true
+
+  Block024Extension:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: Block024Extension
+    info:
+      path: Block024Extension/Info.plist
+      properties:
+        CFBundleDisplayName: "VNCallBlocker - Đầu 024 (HN)"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.callkit.call-directory
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).CallDirectoryHandler
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.vohoang.VNCallBlocker.Block024Extension
+        INFOPLIST_FILE: Block024Extension/Info.plist
+        SKIP_INSTALL: YES
+    dependencies:
+      - sdk: CallKit.framework
+
+  Block028Extension:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: Block028Extension
+    info:
+      path: Block028Extension/Info.plist
+      properties:
+        CFBundleDisplayName: "VNCallBlocker - Đầu 028 (HCM)"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.callkit.call-directory
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).CallDirectoryHandler
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.vohoang.VNCallBlocker.Block028Extension
+        INFOPLIST_FILE: Block028Extension/Info.plist
+        SKIP_INSTALL: YES
+    dependencies:
+      - sdk: CallKit.framework

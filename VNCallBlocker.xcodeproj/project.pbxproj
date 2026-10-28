@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30E6ED28A61582BB44A3F3DE /* Block028Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DD74DE97915413E9C1E7FDC6 /* Block028Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3BC8302676E5A7101D699BDE /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7FE406EF560CADA40335636 /* CallKit.framework */; };
+		628FFBF95461694C344869E2 /* CallDirectoryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8380F639C4E554E94A576303 /* CallDirectoryHandler.swift */; };
+		7A7236A4CE7692F04059FA7E /* CallDirectoryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1208EA33C4B6E529773FB4DF /* CallDirectoryHandler.swift */; };
+		7BE0FA7023C9A717DDD27B9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9658D4E476DAC068D58A9FD /* Assets.xcassets */; };
+		92BC767471BCC2FCD69E8B6A /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7FE406EF560CADA40335636 /* CallKit.framework */; };
+		CFB6F82E863D4E75CEDA8EEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4CA0879477C145AD6B4E2 /* ContentView.swift */; };
+		D20352BD06C37F65E410C812 /* VNCallBlockerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C37526F4234B74400B4EC9 /* VNCallBlockerApp.swift */; };
+		E9C12B75609FB055931AB1F7 /* Block024Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 47702E4172407D5FFA78A6CF /* Block024Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F3C89FA53E4650584BA4CF22 /* CallBlockerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E493080646C4132F8A8378DC /* CallBlockerViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		42B0B1E075A82F9997EA82B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0DBE7DFF4B9F6C00AC3CF57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AB38D4ACCFCCFB7D2EF7F11;
+			remoteInfo = Block024Extension;
+		};
+		69B7EB4DF9062F8B7B3CE944 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0DBE7DFF4B9F6C00AC3CF57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B70415051FB38146E12AB6A4;
+			remoteInfo = Block028Extension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9B5991D6CCEAA27B15FC8E40 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E9C12B75609FB055931AB1F7 /* Block024Extension.appex in Embed Foundation Extensions */,
+				30E6ED28A61582BB44A3F3DE /* Block028Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		04DFF7A2A61AC42FBCE33CF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1208EA33C4B6E529773FB4DF /* CallDirectoryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDirectoryHandler.swift; sourceTree = "<group>"; };
+		282AF1F5A7C575BAD94B1591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2BE4CA0879477C145AD6B4E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2F930901C61E00E5C92EF700 /* VNCallBlocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VNCallBlocker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		47702E4172407D5FFA78A6CF /* Block024Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Block024Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		796CEDA8B490B478B0FFDD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8380F639C4E554E94A576303 /* CallDirectoryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDirectoryHandler.swift; sourceTree = "<group>"; };
+		B9C37526F4234B74400B4EC9 /* VNCallBlockerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNCallBlockerApp.swift; sourceTree = "<group>"; };
+		DD74DE97915413E9C1E7FDC6 /* Block028Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Block028Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E493080646C4132F8A8378DC /* CallBlockerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallBlockerViewModel.swift; sourceTree = "<group>"; };
+		E7FE406EF560CADA40335636 /* CallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallKit.framework; path = System/Library/Frameworks/CallKit.framework; sourceTree = SDKROOT; };
+		E9658D4E476DAC068D58A9FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		87B37C2F8A8B1772999F914E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92BC767471BCC2FCD69E8B6A /* CallKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5EE91B81B29F628E1902786 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BC8302676E5A7101D699BDE /* CallKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00F1FDEC9F13A893D464E16A /* Block028Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1208EA33C4B6E529773FB4DF /* CallDirectoryHandler.swift */,
+				796CEDA8B490B478B0FFDD39 /* Info.plist */,
+			);
+			path = Block028Extension;
+			sourceTree = "<group>";
+		};
+		11630D452997FEF55D62AF0E /* Block024Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8380F639C4E554E94A576303 /* CallDirectoryHandler.swift */,
+				04DFF7A2A61AC42FBCE33CF8 /* Info.plist */,
+			);
+			path = Block024Extension;
+			sourceTree = "<group>";
+		};
+		12AE2181858B314911BC36E4 /* VNCallBlocker */ = {
+			isa = PBXGroup;
+			children = (
+				E9658D4E476DAC068D58A9FD /* Assets.xcassets */,
+				E493080646C4132F8A8378DC /* CallBlockerViewModel.swift */,
+				2BE4CA0879477C145AD6B4E2 /* ContentView.swift */,
+				282AF1F5A7C575BAD94B1591 /* Info.plist */,
+				B9C37526F4234B74400B4EC9 /* VNCallBlockerApp.swift */,
+			);
+			path = VNCallBlocker;
+			sourceTree = "<group>";
+		};
+		4F6E0396EE25788224E41CAF = {
+			isa = PBXGroup;
+			children = (
+				11630D452997FEF55D62AF0E /* Block024Extension */,
+				00F1FDEC9F13A893D464E16A /* Block028Extension */,
+				12AE2181858B314911BC36E4 /* VNCallBlocker */,
+				EC3993B84DD7D974D2C282AB /* Frameworks */,
+				F07154F01CD2FB880F9DF610 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EC3993B84DD7D974D2C282AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7FE406EF560CADA40335636 /* CallKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F07154F01CD2FB880F9DF610 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				47702E4172407D5FFA78A6CF /* Block024Extension.appex */,
+				DD74DE97915413E9C1E7FDC6 /* Block028Extension.appex */,
+				2F930901C61E00E5C92EF700 /* VNCallBlocker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		905E78AF3193D57699548FB3 /* VNCallBlocker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E5DBA869363FF304404FC05 /* Build configuration list for PBXNativeTarget "VNCallBlocker" */;
+			buildPhases = (
+				E427F75AA6A412A2282CCAEF /* Sources */,
+				71389AF6A8B2044B5A7C54AF /* Resources */,
+				9B5991D6CCEAA27B15FC8E40 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E3774013A5E11A6EEEA69951 /* PBXTargetDependency */,
+				80F469288AA8D49191D9C797 /* PBXTargetDependency */,
+			);
+			name = VNCallBlocker;
+			packageProductDependencies = (
+			);
+			productName = VNCallBlocker;
+			productReference = 2F930901C61E00E5C92EF700 /* VNCallBlocker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9AB38D4ACCFCCFB7D2EF7F11 /* Block024Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FD7664BAC22D04CC4B1B169 /* Build configuration list for PBXNativeTarget "Block024Extension" */;
+			buildPhases = (
+				95AA1ED039B5A06DB6ADF7B3 /* Sources */,
+				D5EE91B81B29F628E1902786 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Block024Extension;
+			packageProductDependencies = (
+			);
+			productName = Block024Extension;
+			productReference = 47702E4172407D5FFA78A6CF /* Block024Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		B70415051FB38146E12AB6A4 /* Block028Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20CF01F07F5499D19FC70A02 /* Build configuration list for PBXNativeTarget "Block028Extension" */;
+			buildPhases = (
+				4738DBF4E8555CAB001F67C8 /* Sources */,
+				87B37C2F8A8B1772999F914E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Block028Extension;
+			packageProductDependencies = (
+			);
+			productName = Block028Extension;
+			productReference = DD74DE97915413E9C1E7FDC6 /* Block028Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B0DBE7DFF4B9F6C00AC3CF57 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					905E78AF3193D57699548FB3 = {
+						ProvisioningStyle = Automatic;
+					};
+					9AB38D4ACCFCCFB7D2EF7F11 = {
+						ProvisioningStyle = Automatic;
+					};
+					B70415051FB38146E12AB6A4 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A679624D2E523132838541A9 /* Build configuration list for PBXProject "VNCallBlocker" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 4F6E0396EE25788224E41CAF;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F07154F01CD2FB880F9DF610 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				905E78AF3193D57699548FB3 /* VNCallBlocker */,
+				9AB38D4ACCFCCFB7D2EF7F11 /* Block024Extension */,
+				B70415051FB38146E12AB6A4 /* Block028Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		71389AF6A8B2044B5A7C54AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BE0FA7023C9A717DDD27B9A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4738DBF4E8555CAB001F67C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A7236A4CE7692F04059FA7E /* CallDirectoryHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA1ED039B5A06DB6ADF7B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				628FFBF95461694C344869E2 /* CallDirectoryHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E427F75AA6A412A2282CCAEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3C89FA53E4650584BA4CF22 /* CallBlockerViewModel.swift in Sources */,
+				CFB6F82E863D4E75CEDA8EEF /* ContentView.swift in Sources */,
+				D20352BD06C37F65E410C812 /* VNCallBlockerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		80F469288AA8D49191D9C797 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B70415051FB38146E12AB6A4 /* Block028Extension */;
+			targetProxy = 69B7EB4DF9062F8B7B3CE944 /* PBXContainerItemProxy */;
+		};
+		E3774013A5E11A6EEEA69951 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9AB38D4ACCFCCFB7D2EF7F11 /* Block024Extension */;
+			targetProxy = 42B0B1E075A82F9997EA82B8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1B2389B1DB06A617754E9ACF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2UXX3P88B5;
+				INFOPLIST_FILE = VNCallBlocker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vohoang.VNCallBlocker;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		225DAF3B6CBFA7F3E0FF25F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		341FE9E8F2389DFFC42E397A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 2UXX3P88B5;
+				INFOPLIST_FILE = Block028Extension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vohoang.VNCallBlocker.Block028Extension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4B7A95688B8FB36758CC4F3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 2UXX3P88B5;
+				INFOPLIST_FILE = Block028Extension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vohoang.VNCallBlocker.Block028Extension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		69D47B8130FDF778ECCA84EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 2UXX3P88B5;
+				INFOPLIST_FILE = Block024Extension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vohoang.VNCallBlocker.Block024Extension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BFAEC67462AB63001BD4B402 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2UXX3P88B5;
+				INFOPLIST_FILE = VNCallBlocker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vohoang.VNCallBlocker;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D6A021EE185CF20B0E4A5160 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		E4BF1BA38BB5C174E8D15CFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 2UXX3P88B5;
+				INFOPLIST_FILE = Block024Extension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vohoang.VNCallBlocker.Block024Extension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		20CF01F07F5499D19FC70A02 /* Build configuration list for PBXNativeTarget "Block028Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				341FE9E8F2389DFFC42E397A /* Debug */,
+				4B7A95688B8FB36758CC4F3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6E5DBA869363FF304404FC05 /* Build configuration list for PBXNativeTarget "VNCallBlocker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B2389B1DB06A617754E9ACF /* Debug */,
+				BFAEC67462AB63001BD4B402 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9FD7664BAC22D04CC4B1B169 /* Build configuration list for PBXNativeTarget "Block024Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69D47B8130FDF778ECCA84EF /* Debug */,
+				E4BF1BA38BB5C174E8D15CFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A679624D2E523132838541A9 /* Build configuration list for PBXProject "VNCallBlocker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				225DAF3B6CBFA7F3E0FF25F4 /* Debug */,
+				D6A021EE185CF20B0E4A5160 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B0DBE7DFF4B9F6C00AC3CF57 /* Project object */;
+}
