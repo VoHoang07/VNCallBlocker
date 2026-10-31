@@ -10,15 +10,8 @@ final class CallDirectoryHandler: CXCallDirectoryProvider {
             context.removeAllBlockingEntries()
         }
 
-        addAllBlockingPhoneNumbers(to: context)
+        CustomNumbers.addAllEntries(to: context)
         context.completeRequest()
-    }
-
-    private func addAllBlockingPhoneNumbers(to context: CXCallDirectoryExtensionContext) {
-        let numbers = CustomBlockedStorage.shared.allBlockedPhoneNumbers()
-        for phoneNumber in numbers {
-            context.addBlockingEntry(withNextSequentialPhoneNumber: phoneNumber)
-        }
     }
 }
 

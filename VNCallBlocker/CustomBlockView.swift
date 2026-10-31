@@ -1,8 +1,8 @@
 import SwiftUI
+import CallKit
 
 struct CustomBlockView: View {
     @StateObject private var viewModel = CustomBlockViewModel()
-    @State private var showAddSheet = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
@@ -11,7 +11,7 @@ struct CustomBlockView: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Số tùy chỉnh")
                         .font(.title3.weight(.bold))
-                    Text("\(viewModel.entries.count) mục • \(viewModel.totalCount.formatted()) số")
+                    Text("\(CustomNumbers.entries.count) mục • \(CustomNumbers.totalCount.formatted()) số")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -31,44 +31,26 @@ struct CustomBlockView: View {
                 Spacer()
             }
 
-            // Action buttons
-            HStack(spacing: 10) {
-                Button {
-                    showAddSheet = true
-                } label: {
-                    HStack(spacing: 6) {
-                        Image(systemName: "plus.circle.fill")
-                        Text("Thêm số chặn")
-                            .fontWeight(.semibold)
+            // Reload button
+            Button {
+                Task { await viewModel.reloadExtension() }
+            } label: {
+                HStack(spacing: 8) {
+                    if viewModel.isReloading {
+                        ProgressView().controlSize(.small)
+                    } else {
+                        Image(systemName: "arrow.triangle.2.circlepath")
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 11)
-                    .background(Color.purple.opacity(0.14))
-                    .foregroundStyle(.purple)
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                    Text(viewModel.isReloading ? "Đang nạp bộ lọc..." : "Reload / Cập nhật bộ lọc")
+                        .fontWeight(.semibold)
                 }
-
-                Button {
-                    Task { await viewModel.reloadExtension() }
-                } label: {
-                    HStack(spacing: 6) {
-                        if viewModel.isReloading {
-                            ProgressView()
-                                .controlSize(.small)
-                        } else {
-                            Image(systemName: "arrow.triangle.2.circlepath")
-                        }
-                        Text(viewModel.isReloading ? "Đang nạp..." : "Cập nhật")
-                            .fontWeight(.semibold)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 11)
-                    .background(Color.accentColor.opacity(0.14))
-                    .foregroundStyle(Color.accentColor)
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                }
-                .disabled(viewModel.isReloading)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 11)
+                .background(Color.accentColor.opacity(0.14))
+                .foregroundStyle(Color.accentColor)
+                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             }
+            .disabled(viewModel.isReloading)
 
             // Feedback
             if let msg = viewModel.feedbackMessage {
@@ -85,55 +67,85 @@ struct CustomBlockView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
             }
 
-            // Entries list
-            if !viewModel.entries.isEmpty {
-                DisclosureGroup("Danh sách \(viewModel.entries.count) mục đã thêm") {
-                    VStack(spacing: 0) {
-                        ForEach(viewModel.entries) { entry in
+            // Entries list or empty state
+            if CustomNumbers.entries.isEmpty {
+                instructionCard
+            } else {
+                DisclosureGroup("Danh sách \(CustomNumbers.entries.count) mục đang chặn") {
+                    VStack(alignment: .leading, spacing: 8) {
+                        ForEach(Array(CustomNumbers.entries.enumerated()), id: \.offset) { _, entry in
                             HStack(alignment: .top) {
                                 VStack(alignment: .leading, spacing: 2) {
-                                    Text(entry.label.isEmpty ? entry.rawInput : entry.label)
+                                    Text(entry.label)
                                         .font(.caption.weight(.semibold))
                                     Text(entry.subtitle)
                                         .font(.caption2.monospaced())
                                         .foregroundStyle(.secondary)
                                 }
                                 Spacer()
-                                Button(role: .destructive) {
-                                    viewModel.removeEntry(id: entry.id)
-                                } label: {
-                                    Image(systemName: "trash")
-                                        .font(.caption)
-                                }
                             }
-                            .padding(.vertical, 6)
+                            .padding(.vertical, 2)
                         }
                     }
                     .padding(.top, 6)
                 }
                 .font(.footnote.weight(.medium))
-            } else {
-                HStack(spacing: 6) {
-                    Image(systemName: "info.circle")
-                    Text("Chưa có số tùy chỉnh nào. Nhấn \"Thêm số chặn\" để bắt đầu.")
-                        .font(.caption)
-                }
-                .foregroundStyle(.secondary)
-                .padding(.vertical, 4)
+
+                instructionCard
             }
         }
         .padding()
         .background(Color(.secondarySystemGroupedBackground))
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
         .onAppear {
-            viewModel.loadData()
+            Task { await viewModel.checkStatus() }
         }
-        .sheet(isPresented: $showAddSheet) {
-            viewModel.loadData()
-        } content: {
-            AddCustomBlockSheet(onSave: { entry in
-                viewModel.addEntry(entry)
-            })
+    }
+
+    private var instructionCard: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Label("Cách thêm số chặn tùy chỉnh", systemImage: "doc.text")
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(.purple)
+
+            VStack(alignment: .leading, spacing: 4) {
+                instructionRow("1", "Mở file Shared/CustomNumbers.swift trong Xcode")
+                instructionRow("2", "Thêm số vào mảng entries (xem hướng dẫn trong file)")
+                instructionRow("3", "Build lại App (⌘R) → Cài lên iPhone")
+                instructionRow("4", "Nhấn \"Cập nhật\" ở trên để nạp số mới vào iOS")
+            }
+
+            Text("Ví dụ cú pháp:")
+                .font(.caption2.weight(.semibold))
+                .foregroundStyle(.secondary)
+                .padding(.top, 2)
+
+            Text("""
+            .single(842412345678, label: "Spam XYZ")
+            .range(842434500000...842434599999, label: "VoIP 024 345x")
+            """)
+            .font(.caption2.monospaced())
+            .padding(8)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color(.tertiarySystemGroupedBackground))
+            .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
+        }
+        .padding(10)
+        .background(Color.purple.opacity(0.06))
+        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+    }
+
+    private func instructionRow(_ number: String, _ text: String) -> some View {
+        HStack(alignment: .top, spacing: 6) {
+            Text(number)
+                .font(.caption2.weight(.bold))
+                .frame(width: 16, height: 16)
+                .background(Color.purple.opacity(0.15))
+                .foregroundStyle(.purple)
+                .clipShape(Circle())
+            Text(text)
+                .font(.caption2)
+                .foregroundStyle(.primary)
         }
     }
 
@@ -167,174 +179,18 @@ struct CustomBlockView: View {
     }
 }
 
-// MARK: - Add Sheet
-
-struct AddCustomBlockSheet: View {
-    @Environment(\.dismiss) private var dismiss
-
-    let onSave: (CustomBlockedEntry) -> Void
-
-    @State private var inputMode: InputMode = .single
-    @State private var phoneInput = ""
-    @State private var prefixInput = ""
-    @State private var label = ""
-    @State private var errorMessage: String?
-
-    enum InputMode: String, CaseIterable {
-        case single = "Số cụ thể"
-        case prefix = "Dải đầu số"
-    }
-
-    var body: some View {
-        NavigationStack {
-            Form {
-                Section {
-                    Picker("Loại chặn", selection: $inputMode) {
-                        ForEach(InputMode.allCases, id: \.self) { mode in
-                            Text(mode.rawValue).tag(mode)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                }
-
-                Section {
-                    TextField("Ghi chú (tuỳ chọn)", text: $label)
-                }
-
-                switch inputMode {
-                case .single:
-                    Section {
-                        TextField("VD: 02412345678 hoặc +842412345678", text: $phoneInput)
-                            .keyboardType(.phonePad)
-                    } header: {
-                        Text("Số điện thoại cần chặn")
-                    } footer: {
-                        Text("Nhập số cố định VN đầy đủ (10-11 chữ số). Hỗ trợ định dạng: 024..., 028..., +8424..., 8424...")
-                    }
-
-                case .prefix:
-                    Section {
-                        TextField("VD: 02434 hoặc 024345", text: $prefixInput)
-                            .keyboardType(.phonePad)
-                    } header: {
-                        Text("Đầu số cần chặn")
-                    } footer: {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("Nhập phần đầu số cần chặn. Hệ thống sẽ tự động pad thêm 0-9 để tạo dải số hoàn chỉnh.")
-                            if let range = prefixPreview {
-                                Text("Sẽ chặn: \(range.count.formatted()) số (\(range.lo)...\(range.hi))")
-                                    .foregroundStyle(.purple)
-                                    .fontWeight(.medium)
-                            }
-                        }
-                    }
-                }
-
-                if let errorMessage {
-                    Section {
-                        Label(errorMessage, systemImage: "exclamationmark.triangle.fill")
-                            .foregroundStyle(.red)
-                            .font(.footnote)
-                    }
-                }
-            }
-            .navigationTitle("Thêm số chặn")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Huỷ") { dismiss() }
-                }
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Lưu") { save() }
-                        .fontWeight(.semibold)
-                }
-            }
-        }
-        .presentationDetents([.medium, .large])
-    }
-
-    private var prefixPreview: (lo: String, hi: String, count: Int)? {
-        guard !prefixInput.isEmpty,
-              let (lo, hi) = VNPhoneParser.parsePrefix(prefixInput) else { return nil }
-        return ("+\(lo)", "+\(hi)", Int(hi - lo) + 1)
-    }
-
-    private func save() {
-        errorMessage = nil
-
-        switch inputMode {
-        case .single:
-            guard let number = VNPhoneParser.parseSingle(phoneInput) else {
-                errorMessage = "Số điện thoại không hợp lệ. Vui lòng nhập số cố định VN đầy đủ (VD: 02412345678)."
-                return
-            }
-            let entry = CustomBlockedEntry(
-                id: UUID(),
-                label: label,
-                entryType: .single(number),
-                rawInput: phoneInput,
-                createdAt: Date()
-            )
-            onSave(entry)
-            dismiss()
-
-        case .prefix:
-            guard let (lo, hi) = VNPhoneParser.parsePrefix(prefixInput) else {
-                errorMessage = "Đầu số không hợp lệ. Vui lòng nhập ít nhất 4 chữ số (VD: 0243 hoặc 02434)."
-                return
-            }
-            let count = Int(hi - lo) + 1
-            if count > 1_000_000 {
-                errorMessage = "Dải số quá lớn (\(count.formatted()) số). Vui lòng nhập đầu số dài hơn để thu hẹp phạm vi."
-                return
-            }
-            let entry = CustomBlockedEntry(
-                id: UUID(),
-                label: label,
-                entryType: .prefix(lo, hi),
-                rawInput: prefixInput,
-                createdAt: Date()
-            )
-            onSave(entry)
-            dismiss()
-        }
-    }
-}
-
 // MARK: - ViewModel
 
 @MainActor
 final class CustomBlockViewModel: ObservableObject {
-    @Published var entries: [CustomBlockedEntry] = []
     @Published var status: ExtensionStatus = .checking
     @Published var isReloading = false
     @Published var feedbackMessage: String?
     @Published var feedbackIsError = false
 
-    private let storage = CustomBlockedStorage.shared
-
     var extensionBundleID: String {
         let mainID = Bundle.main.bundleIdentifier ?? "com.vohoang.VNCallBlocker"
         return "\(mainID).BlockCustomExtension"
-    }
-
-    var totalCount: Int {
-        entries.reduce(0) { $0 + $1.count }
-    }
-
-    func loadData() {
-        entries = storage.loadEntries()
-        Task { await checkStatus() }
-    }
-
-    func addEntry(_ entry: CustomBlockedEntry) {
-        storage.addEntry(entry)
-        entries = storage.loadEntries()
-    }
-
-    func removeEntry(id: UUID) {
-        storage.removeEntry(id: id)
-        entries = storage.loadEntries()
     }
 
     func checkStatus() async {
@@ -365,7 +221,7 @@ final class CustomBlockViewModel: ObservableObject {
                 }
             }
             feedbackIsError = false
-            feedbackMessage = "Đã nạp \(totalCount.formatted()) số tùy chỉnh vào bộ lọc."
+            feedbackMessage = "Đã nạp \(CustomNumbers.totalCount.formatted()) số tùy chỉnh vào bộ lọc."
         } catch {
             feedbackIsError = true
             feedbackMessage = (error as NSError).localizedDescription
@@ -374,5 +230,3 @@ final class CustomBlockViewModel: ObservableObject {
         isReloading = false
     }
 }
-
-import CallKit
