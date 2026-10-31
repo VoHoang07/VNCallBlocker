@@ -398,7 +398,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vohoang.VNCallBlocker.BlockCustomExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vvmhoang.VNCallBlocker.BlockCustomExtension;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -416,7 +416,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vohoang.VNCallBlocker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vvmhoang.VNCallBlocker;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -498,7 +498,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vohoang.VNCallBlocker.BlockCustomExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vvmhoang.VNCallBlocker.BlockCustomExtension;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -515,7 +515,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vohoang.VNCallBlocker.Block028Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vvmhoang.VNCallBlocker.Block028Extension;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -532,7 +532,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vohoang.VNCallBlocker.Block028Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vvmhoang.VNCallBlocker.Block028Extension;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -549,7 +549,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vohoang.VNCallBlocker.Block024Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vvmhoang.VNCallBlocker.Block024Extension;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -567,7 +567,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vohoang.VNCallBlocker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vvmhoang.VNCallBlocker;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -642,7 +642,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vohoang.VNCallBlocker.Block024Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vvmhoang.VNCallBlocker.Block024Extension;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
