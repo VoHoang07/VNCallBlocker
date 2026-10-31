@@ -72,13 +72,13 @@
 		1208EA33C4B6E529773FB4DF /* CallDirectoryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDirectoryHandler.swift; sourceTree = "<group>"; };
 		282AF1F5A7C575BAD94B1591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2BE4CA0879477C145AD6B4E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		2F930901C61E00E5C92EF700 /* VNCallBlocker.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = VNCallBlocker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		47702E4172407D5FFA78A6CF /* Block024Extension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = Block024Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F930901C61E00E5C92EF700 /* VNCallBlocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VNCallBlocker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		47702E4172407D5FFA78A6CF /* Block024Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Block024Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		796CEDA8B490B478B0FFDD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8380F639C4E554E94A576303 /* CallDirectoryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDirectoryHandler.swift; sourceTree = "<group>"; };
-		8D1D251C85CEE20B9C1AC051 /* BlockCustomExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = BlockCustomExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1D251C85CEE20B9C1AC051 /* BlockCustomExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BlockCustomExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9C37526F4234B74400B4EC9 /* VNCallBlockerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNCallBlockerApp.swift; sourceTree = "<group>"; };
-		DD74DE97915413E9C1E7FDC6 /* Block028Extension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = Block028Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD74DE97915413E9C1E7FDC6 /* Block028Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Block028Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E493080646C4132F8A8378DC /* CallBlockerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallBlockerViewModel.swift; sourceTree = "<group>"; };
 		E7FE406EF560CADA40335636 /* CallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallKit.framework; path = System/Library/Frameworks/CallKit.framework; sourceTree = SDKROOT; };
 		E8B0349F2AAC1CEA42539F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -391,6 +391,7 @@
 		0D74CF4C2ECD0819D8EE5B88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 2UXX3P88B5;
 				INFOPLIST_FILE = BlockCustomExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -410,6 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2UXX3P88B5;
 				INFOPLIST_FILE = VNCallBlocker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -491,6 +493,7 @@
 		232FD1CB6317F8A1143BDE26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 2UXX3P88B5;
 				INFOPLIST_FILE = BlockCustomExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -508,6 +511,7 @@
 		341FE9E8F2389DFFC42E397A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 2UXX3P88B5;
 				INFOPLIST_FILE = Block028Extension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -525,6 +529,7 @@
 		4B7A95688B8FB36758CC4F3C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 2UXX3P88B5;
 				INFOPLIST_FILE = Block028Extension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -542,6 +547,7 @@
 		69D47B8130FDF778ECCA84EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 2UXX3P88B5;
 				INFOPLIST_FILE = Block024Extension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -561,6 +567,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2UXX3P88B5;
 				INFOPLIST_FILE = VNCallBlocker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -635,6 +642,7 @@
 		E4BF1BA38BB5C174E8D15CFF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 2UXX3P88B5;
 				INFOPLIST_FILE = Block024Extension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (

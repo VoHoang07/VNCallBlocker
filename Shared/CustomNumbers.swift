@@ -38,6 +38,8 @@ enum CustomNumbers {
         // .single(842412345678, label: "Số spam hay gọi"),
         // .range(842434500000...842434599999, label: "VoIP đầu 024 345x xxxx"),
         // .range(842838000000...842838099999, label: "VoIP đầu 028 380x xxxx"),
+        .range(842871200000...842871299999, label: "VoIP đầu 028 712x xxxx"),
+        .range(842883800000...842883899999, label: "VoIP đầu 028 838x xxxx")
     ]
 
     // MARK: - Entry Type
@@ -88,9 +90,10 @@ enum CustomNumbers {
         entries.reduce(0) { $0 + $1.count }
     }
 
-    /// Nạp toàn bộ số vào CallKit context (đã sorted, strictly ascending)
+    /// Nạp toàn bộ số vào CallKit context (auto-sorted, strictly ascending)
     static func addAllEntries(to context: CXCallDirectoryExtensionContext) {
-        for entry in entries {
+        let sorted = entries.sorted { $0.firstNumber < $1.firstNumber }
+        for entry in sorted {
             switch entry {
             case .single(let number, _):
                 context.addBlockingEntry(withNextSequentialPhoneNumber: number)
