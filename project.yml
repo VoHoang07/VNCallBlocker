@@ -21,6 +21,7 @@ targets:
     deploymentTarget: "26.0"
     sources:
       - path: VNCallBlocker
+      - path: Shared
     info:
       path: VNCallBlocker/Info.plist
       properties:
@@ -30,15 +31,23 @@ targets:
           - UIInterfaceOrientationPortrait
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
+    entitlements:
+      path: VNCallBlocker/VNCallBlocker.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.vohoang.VNCallBlocker
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.vohoang.VNCallBlocker
         INFOPLIST_FILE: VNCallBlocker/Info.plist
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_ENTITLEMENTS: VNCallBlocker/VNCallBlocker.entitlements
     dependencies:
       - target: Block024Extension
         embed: true
       - target: Block028Extension
+        embed: true
+      - target: BlockCustomExtension
         embed: true
 
   Block024Extension:
@@ -80,5 +89,33 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.vohoang.VNCallBlocker.Block028Extension
         INFOPLIST_FILE: Block028Extension/Info.plist
         SKIP_INSTALL: YES
+    dependencies:
+      - sdk: CallKit.framework
+
+  BlockCustomExtension:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: BlockCustomExtension
+      - path: Shared
+    info:
+      path: BlockCustomExtension/Info.plist
+      properties:
+        CFBundleDisplayName: "VNCallBlocker - Số tùy chỉnh"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.callkit.call-directory
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).CallDirectoryHandler
+    entitlements:
+      path: BlockCustomExtension/BlockCustomExtension.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.vohoang.VNCallBlocker
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.vohoang.VNCallBlocker.BlockCustomExtension
+        INFOPLIST_FILE: BlockCustomExtension/Info.plist
+        SKIP_INSTALL: YES
+        CODE_SIGN_ENTITLEMENTS: BlockCustomExtension/BlockCustomExtension.entitlements
     dependencies:
       - sdk: CallKit.framework

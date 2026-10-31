@@ -69,6 +69,13 @@ final class CallBlockerViewModel: ObservableObject {
         "\(mainBundleID).Block028Extension"
     }
 
+    var extensionCustomBundleID: String {
+        "\(mainBundleID).BlockCustomExtension"
+    }
+
+    @Published var statusCustom: ExtensionStatus = .checking
+    @Published var isReloadingCustom: Bool = false
+
     let ranges024: [BlockedRangeInfo] = [
         BlockedRangeInfo(displayPrefix: "024 445x xxxx", rangeString: "842444500000...842444599999", providerDescription: "VoIP MobiFone / Quốc tế", count: 100_000),
         BlockedRangeInfo(displayPrefix: "024 567x xxxx", rangeString: "842456700000...842456799999", providerDescription: "VoIP VTC", count: 100_000),
@@ -97,6 +104,7 @@ final class CallBlockerViewModel: ObservableObject {
         Task {
             await checkStatus024()
             await checkStatus028()
+            await checkStatusCustom()
         }
     }
 
@@ -108,6 +116,23 @@ final class CallBlockerViewModel: ObservableObject {
     func checkStatus028() async {
         status028 = .checking
         status028 = await fetchEnabledStatus(for: extension028BundleID)
+    }
+
+    func checkStatusCustom() async {
+        statusCustom = .checking
+        statusCustom = await fetchEnabledStatus(for: extensionCustomBundleID)
+    }
+
+    func reloadCustom() async {
+        guard !isReloadingCustom else { return }
+        isReloadingCustom = true
+        do {
+            try await reloadExtension(identifier: extensionCustomBundleID)
+        } catch {
+            // Errors handled in CustomBlockView's own ViewModel
+        }
+        await checkStatusCustom()
+        isReloadingCustom = false
     }
 
     func reload024() async {
@@ -149,6 +174,7 @@ final class CallBlockerViewModel: ObservableObject {
 
         await reload024()
         await reload028()
+        await reloadCustom()
 
         if !feedbackIsError024 && !feedbackIsError028 {
             globalBannerIsError = false

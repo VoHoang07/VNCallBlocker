@@ -37,6 +37,7 @@ struct ContentView: View {
                             Task { await viewModel.reload028() }
                         }
                     )
+                    CustomBlockView()
                     bundleIDFooter
                 }
                 .padding()
@@ -80,9 +81,9 @@ struct ContentView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
 
             VStack(alignment: .leading, spacing: 4) {
-                Text("Chặn Tổng Đài Ảo 024 & 028")
+                Text("Chặn Tổng Đài Ảo & Số Tùy Chỉnh")
                     .font(.headline)
-                Text("Hoạt động offline 100% qua CallKit • Không cần App Groups")
+                Text("Hoạt động offline 100% qua CallKit • Hỗ trợ thêm số tùy chỉnh")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -141,7 +142,7 @@ struct ContentView: View {
                     Text(
                         (viewModel.isReloadingAll || viewModel.isReloading024 || viewModel.isReloading028)
                         ? "Đang nạp danh sách số vào iOS..."
-                        : "Cập nhật tất cả (024 & 028)"
+                        : "Cập nhật tất cả (024, 028 & Tùy chỉnh)"
                     )
                     .fontWeight(.semibold)
                 }
@@ -313,6 +314,9 @@ struct ContentView: View {
                 .font(.caption2.monospaced())
                 .foregroundStyle(.secondary)
             Text("• 028: \(viewModel.extension028BundleID)")
+                .font(.caption2.monospaced())
+                .foregroundStyle(.secondary)
+            Text("• Custom: \(viewModel.extensionCustomBundleID)")
                 .font(.caption2.monospaced())
                 .foregroundStyle(.secondary)
         }
